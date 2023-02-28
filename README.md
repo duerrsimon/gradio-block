@@ -9,11 +9,11 @@ user: gradio
 spacename: pictionary
 ```
 
-```markdown
-<BlockComponent block={{"type":"file","id":"hfspaces","title":"HF Space","description":"Demo"}} context={{"repo":"gradio-block","owner":"duerrsimon","path":"example/hf.yml","sha":"main","file":"README.md"}} />
+```
+<BlockComponent block={{"owner":"duerrsimon","repo":"gradio-block","id":"hfspace","type":"file"}} context={{"repo":"gradio-block","owner":"duerrsimon","path":"example/hf.yml","sha":"main","file":"README.md"}} />
 ```
 
 
 ## Demo
-<BlockComponent block={{"type":"file","id":"hfspaces","title":"HF Space","description":"Demo"}} context={{"repo":"gradio-block","owner":"duerrsimon","path":"example/hf.yml","sha":"main","file":"README.md"}} />
+<BlockComponent block={{"owner":"duerrsimon","repo":"gradio-block","id":"hfspace","type":"file"}} context={{"repo":"gradio-block","owner":"duerrsimon","path":"example/hf.yml","sha":"main","file":"README.md"}} />
 
