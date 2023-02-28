@@ -5,10 +5,11 @@ import { tw } from "twind"
 import { load } from "js-yaml";
 import { useMemo } from "react";
 
+import "https://gradio.s3-us-west-2.amazonaws.com/3.19.1/gradio.js"
 
 export default function HFSpacesBlock(props: FileBlockProps) {
   const { context, content, metadata, onUpdateMetadata } = props;
-
+  const data = useMemo(() => parseContent(context.path, content), [content]);
 
   return (
     <Box p={4}>
@@ -99,20 +100,32 @@ export default function HFSpacesBlock(props: FileBlockProps) {
                 fill="#FFD21E"
               />
             </svg>
-            <span> Space: {context.path}</span>
+            <span> Space: {data.user}/{data.spacename}</span>
           </div>
         </Box>
         <Box p={4}>
-          <iframe
-            src="https://gradio-pictionary.hf.space"
+          {/* <iframe
+            src={"https://" + data.user + "-" + data.spacename + ".hf.space"}
             frameborder="0"
             width="850"
             height="450"
-          ></iframe>
+          ></iframe> */}
+
+          <gradio-app src={"https://" + data.user + "-" + data.spacename + ".hf.space"}></gradio-app>
+
         </Box>
       </Box>
-    </Box>
+    </Box >
   );
 }
 
 
+
+function parseContent(path: string, content: string): any[] {
+  const extension = path.split(".").pop();
+  if (["yaml", "yml"].includes(extension)) {
+    return (load(content));
+  } else {
+    return [];
+  }
+}
